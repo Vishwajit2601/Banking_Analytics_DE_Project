@@ -1,0 +1,17 @@
+{
+	"name": "Business_Query",
+	"properties": {
+		"content": {
+			"query": "USE banking_analytics_db;\n\n-- Top customers by balance\nSELECT TOP 20\n    customer_id,\n    full_name,\n    city,\n    state,\n    total_balance,\n    total_loan_amount,\n    total_card_outstanding,\n    risk_score\nFROM gold.vw_customer_360\nORDER BY total_balance DESC;\n\n-- Fraud analysis\nSELECT\n    fraud_year,\n    fraud_month,\n    fraud_type,\n    risk_level,\n    fraud_count,\n    total_loss,\n    confirmed_frauds,\n    confirmation_rate\nFROM gold.vw_fraud_analysis\nORDER BY total_loss DESC;\n\n\n-- Monthly financial performance\nSELECT\n    transaction_year,\n    transaction_month,\n    total_transactions,\n    total_credits,\n    total_debits,\n    net_flow,\n    upi_volume,\n    netbanking_volume,\n    rtgs_volume,\n    imps_volume\nFROM gold.vw_monthly_financial\nORDER BY\n    transaction_year,\n    transaction_month;\n\n\n\n\n\n\n\n\n\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "banking_analytics_db",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
