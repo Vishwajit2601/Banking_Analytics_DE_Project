@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"value": "bankingsynapseworkspace"
+		},
+		"bankingsynapseworkspace-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:bankingsynapseworkspace.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"ls_adls_accountKey": {
+			"value": ""
+		},
+		"bankingsynapseworkspace-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://adlsbankinganalytics.dfs.core.windows.net"
+		},
+		"ls_AzureKeyVault_properties_typeProperties_baseUrl": {
+			"value": "https://BankingAnalyticsKeyVault.vault.azure.net/"
+		},
+		"ls_adls_properties_typeProperties_url": {
+			"value": "https://adlsbankinganalytics.dfs.core.windows.net/"
+		},
+		"ls_onprem_properties_typeProperties_host": {
+			"value": "D://"
+		},
+		"ls_onprem_properties_typeProperties_userId": {
+			"value": "desktop-lqs305u\\vishwajit"
+		}
+	}
+}
