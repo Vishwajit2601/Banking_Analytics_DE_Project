@@ -1,0 +1,17 @@
+{
+	"name": "Check_records_count",
+	"properties": {
+		"content": {
+			"query": "USE banking_analytics_db;\n\nSELECT COUNT(*) AS customer_360_count\nFROM gold.vw_customer_360;\n1000\n\nSELECT COUNT(*) AS fraud_analysis_count\nFROM gold.vw_fraud_analysis;\n-- 362\n\nSELECT COUNT(*) AS monthly_financial_count\nFROM gold.vw_monthly_financial;\n-- 29",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "banking_analytics_db",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

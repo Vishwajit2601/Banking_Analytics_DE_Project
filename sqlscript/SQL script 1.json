@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 1",
+	"properties": {
+		"content": {
+			"query": "CREATE DATABASE banking_analytics_db;\n\nUSE banking_analytics_db;\n\nSELECT DB_NAME() AS current_database;\n\nCREATE SCHEMA gold;\n\nCREATE VIEW gold.vw_customer_360\nAS\nSELECT *\nFROM OPENROWSET(\n    BULK 'https://adlsbankinganalytics.dfs.core.windows.net/gold/customer_360',\n    FORMAT = 'DELTA'\n) AS customer_data;\n\n\nCREATE VIEW gold.vw_fraud_analysis\nAS\nSELECT *\nFROM OPENROWSET(\n    BULK 'https://adlsbankinganalytics.dfs.core.windows.net/gold/fraud_analysis',\n    FORMAT = 'DELTA'\n) AS fraud_data;\n\n\nCREATE VIEW gold.vw_monthly_financial\nAS\nSELECT *\nFROM OPENROWSET(\n    BULK 'https://adlsbankinganalytics.dfs.core.windows.net/gold/monthly_financial_summary',\n    FORMAT = 'DELTA'\n) AS financial_data;\n\n\n\nSELECT *\nFROM gold.vw_customer_360;\n\nSELECT *\nFROM gold.vw_fraud_analysis;\n\nSELECT *\nFROM gold.vw_monthly_financial;\n\n\n\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "banking_analytics_db",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
